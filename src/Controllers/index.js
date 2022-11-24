@@ -1,5 +1,5 @@
 const { getUserById, createUser, updateUser, getUsersCourses, addCourseToUser } = require('./users.controllers');
-const { getAllCourses, getAllInfCourses, createCourse } = require('./courses.controllers');
+const { getAllCourses, getAllInfCourses, createCourse, updateCourse, createVideo} = require('./courses.controllers');
 
 module.exports = {
     getUserById,
@@ -10,4 +10,6 @@ module.exports = {
     getAllCourses,
     getAllInfCourses,
     createCourse,
+    updateCourse,
+    createVideo
 }

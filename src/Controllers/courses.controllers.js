@@ -45,14 +45,45 @@ const createCourse = async(req, res, next) => {
         next({
             status: 418,
             errorContent: error,
-            message: "No cumples todos los campos",
+            message: "you do not meet all the required fields",
           });
     }
     
+};
+
+const updateCourse = async(req, res, next) => {
+    try {
+        const { id } = req.params;
+        const dataUpdate = req.body;
+        const result = await CoursesServices.update(dataUpdate, id);
+        res.json(result);
+      } catch (error) {
+          next({
+              status: 418,
+              errorContent: "",
+              message: "you do not meet all the required fields",
+          });
+      }
+};
+
+const createVideo = async(req, res, next) => {
+    try {
+        const newVideo = req.body;
+        const result = await CoursesServices.createVid(newVideo);
+        res.status(201).json(result);
+    } catch (error) {
+        next({
+            status: 418,
+            errorContent: error,
+            message: "You do not meet all the required fields",
+          });
+    }
 }
 
 module.exports = {
     getAllCourses,
     getAllInfCourses,
     createCourse,
+    updateCourse,
+    createVideo, 
 }

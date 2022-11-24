@@ -38,6 +38,25 @@ class CoursesServices{
         } catch (error) {
             throw error;
         }
+    };
+    static async update(data, id){
+        try {
+            const result = await Courses.update({description: data.description}, {
+                where: { id },
+                attributes: ["description"]
+            });
+            return result;
+        } catch (error) {
+            throw error;
+        }
+    };
+    static async createVid(newVideo) {
+        try {
+            const result = await Videos.create(newVideo);
+            return result;
+        } catch (error) {
+            throw error;
+        }
     }
 };
 

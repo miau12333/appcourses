@@ -35,7 +35,7 @@ const createUser = async (req, res, next) => {
       next({
         status: 418,
         errorContent: error,
-        message: "No cumples todos los campos",
+        message: "You do not meet all the required fields",
       });
     }
 };
@@ -50,7 +50,7 @@ const updateUser = async (req, res, next) => {
         next({
             status: 418,
             errorContent: error,
-            message: "No cumples todos los campos",
+            message: "you do not meet all the required fields",
         });
     }
 };
@@ -90,7 +90,7 @@ const addCourseToUser = async (req, res, next) => {
       next({
         status: 400,
         errorContent: error,
-        message: "No cumples todos los campos",
+        message: "you do not meet all the required fields",
       });
     }
 };
