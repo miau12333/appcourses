@@ -78,7 +78,31 @@ const createVideo = async(req, res, next) => {
             message: "You do not meet all the required fields",
           });
     }
-}
+};
+
+const deleteVideo = async(req, res, next) => {
+    try {
+        
+        const {id} = req.params;
+        const result = await CoursesServices.delete(id);
+        if(result){  
+            res.status(200).json({message: `Video ${id} deleted.`});
+        }
+        else {
+            next({
+                status: 418,
+                errorContent: error,
+                message: `id ${id} not found`,
+            });
+        }
+    } catch (error) {
+        next({
+            status: 418,
+            errorContent: error,
+            message: `Video not found`,
+          });
+    }
+};
 
 module.exports = {
     getAllCourses,
@@ -86,4 +110,5 @@ module.exports = {
     createCourse,
     updateCourse,
     createVideo, 
+    deleteVideo,
 }

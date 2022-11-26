@@ -4,7 +4,7 @@ const cors = require('cors');
 const db = require('./utils/database');
 const handleError = require('./middlewares/error.middlerware.js');
 const initModels = require('./models/initModels');
-const {usersRoutes, coursesRoutes} = require('./Routes');
+const {usersRoutes, coursesRoutes, categoriesRoutes, videosRoutes} = require('./Routes');
 
 const app = express();
 
@@ -27,6 +27,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", coursesRoutes);
+app.use("/api/v1", categoriesRoutes);
+app.use("/api/v1", videosRoutes);
 
 app.use(handleError);
 

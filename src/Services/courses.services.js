@@ -57,6 +57,20 @@ class CoursesServices{
         } catch (error) {
             throw error;
         }
+    };
+    
+    static async deleteVideo(id)
+    {
+       try{
+             const result =  await Categories.destroy({
+                    where: { id }
+             });
+             return result;
+
+       }catch(error)
+       {
+         throw error;
+       }
     }
 };
 
